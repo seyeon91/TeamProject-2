@@ -6,7 +6,8 @@
  * @version (2026.06.09)
  */
 
-public class Beverages extends Products implements TAX {
+public class Beverages extends Products implements TAX{
+    
     
   
 }
