@@ -7,27 +7,21 @@
  */
 public class Sale
 {
-    // 인스턴스 변수 - 다음의 예제를 사용자에 맞게 변경하세요.
-    private int x;
-
-    /**
-     * Sale 클래스의 객체 생성자
-     */
-    public Sale()
-    {
-        // 인스턴스 변수 초기화
-        x = 0;
-    }
-
-    /**
-     * 예제 메소드 - 이 주석을 사용자에 맞게 바꾸십시오
-     *
-     * @param  y  메소드의 샘플 파라미터
-     * @return    x 더하기 y의 결과값을 반환
-     */
-    public int sampleMethod(int y)
-    {
-        // 여기에 코드를 작성하세요.
-        return x + y;
+    String[] names = new String[10]; // 상품명 배열
+    int[] orig = new int[10]; // 세전 단가 배열
+    int[] taxed = new int[10]; // 세후 단가 배열
+    int[] qtys = new int[10]; // 수량 배열
+    boolean[] alcohol = new boolean[10]; // 주류 여부 배열 (true: 주류, false: 음료수)
+    int count = 0; // 현재 담긴 상품 수
+    
+    // 상품 추가 메소드
+    // n: 상품명, o: 세전단가, t: 세후단가, q: 수량, a: 주류여부
+    public void addItem(String n, int o, int t, int q, boolean a){
+        names[count] = n;
+        orig[count] = o;
+        taxed[count] = t;
+        qtys[count] = q;
+        alcohol[count] = a;
+        count++;
     }
 }
