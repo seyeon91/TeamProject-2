@@ -13,7 +13,7 @@ public class Sale
     int[] qtys = new int[10]; // 수량 배열
     boolean[] alcohol = new boolean[10]; // 주류 여부 배열 (true: 주류, false: 음료수)
     int count = 0; // 현재 담긴 상품 수
-    
+
     // 상품 추가 메소드
     // n: 상품명, o: 세전단가, t: 세후단가, q: 수량, a: 주류여부
     public void addItem(String n, int o, int t, int q, boolean a){
@@ -24,4 +24,12 @@ public class Sale
         alcohol[count] = a;
         count++;
     }
-}
+    
+    // 총 결제금액 계산 : 세후단가 * 수량의 합계 
+    public int getTotal() { 
+        int total = 0;
+        for (int i = 0; i < count; i++){
+            total += taxed[i] * qtys[i];
+        }
+        return total;
+    }
