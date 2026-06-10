@@ -1,16 +1,11 @@
 
 /**
- * 세금정보 인터페이스
+ * TAX - 인터페이스의 설명을 작성하세요.
  *
  * @author (2025320070_복창희, 2025320038_윤세연, 2023320022_편규빈, 2023320004_호준수)
- * @version (2026.06.09)
+ * @version (2026.06.10)
  */
-public interface TAX {
-    /**
-     * 예제 메소드 헤더 - 이 주석을 사용자에 맞게 변경하세요.
-     *
-     * @param  y 메소드의 샘플 파라미터
-     * @return   sampleMethod의 반환값
-     */
-  
+public interface TAX
+{
+    int calcPrice();
 }
