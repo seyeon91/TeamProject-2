@@ -33,3 +33,40 @@ public class Sale
         }
         return total;
     }
+    
+    // 영수증 출력 메소드
+    // cash: 손님에게 받은 현금
+    public void print(int cash) {
+        System.out.println("---- 선문편의점 ----");
+        System.out.println("--------------------------------");
+        
+        // 담은 상품 목록 출력
+        for (int i = 0; i < count; i++) {
+            System.out.println(names[i] + "  " + qtys[i] + "  " + (taxed[i]*qtys[i]) + "원");
+            if (alcohol[i]){
+                System.out.println("  * 부가세(10%) + 주세(30%) 포함");
+            }
+            else{
+                System.out.println("  * 부가세(10%) 포함");
+            }
+        }
+        
+        // 과세물품가액(세전 합계)과 세액(세금 합계) 계산
+        int totalOrig = 0, totalTax = 0;
+        for (int i =0; i < count; i++) {
+            totalOrig += orig[i] * qtys[i];             // 세전 합계
+            totalTax += (taxed[i] - orig[i]) * qtys[i]; // 세금 합계
+        }
+        
+        System.out.println("--------------------------------");
+        System.out.println("총 구매액    " + count + "  " + getTotal() + "원");
+        System.out.println("--------------------------------");
+        System.out.println("과세물품가액  " + totalOrig + "원");
+        System.out.println("부가세       " + totalTax + "원");
+        System.out.println("--------------------------------");
+        System.out.println("결제 금액    " + getTotal() + "원");
+        System.out.println("현금        " + cash + "원");
+        System.out.println("거스름돈     " + (cash - getTotal()) + "원");
+        System.out.println("--------------------------------");
+    }
+}
