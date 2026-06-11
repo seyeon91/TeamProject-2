@@ -45,7 +45,8 @@ public class POST {
     public boolean scan(String barcode, int qty){
         for(int i = 0; i< db.length; i++){
             if(db[i].barcode.equals(barcode)){
-                sale.addItem(db[i].name, db[i].price, db[i].calcTAX(), qty, db[i] instanceof AlcoholicDrinks);
+                TAX item = (TAX) db[i];
+                sale.addItem(db[i].name, db[i].price, db[i].calcTax(), qty, db[i] instanceof AlcoholicDrinks);
                 System.out.println(db[i].name + " x" + qty + " 추가됨");
                 return true;
             }

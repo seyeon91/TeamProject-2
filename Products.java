@@ -14,5 +14,5 @@ public abstract class Products
     String name;
     int price;
 
-    public abstract int calcTAX();
+    public abstract int calcTax();
 }
