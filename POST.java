@@ -1,4 +1,4 @@
-
+ 
 /**
  * 상품 목록 저장, 바코드 인식 기능을 하는 클래스
  *
@@ -8,8 +8,8 @@
 import java.util.Scanner;
 
 public class POST {
-    Products[] db = new Products [6]; 
-    Sale sale = new Sale();       
+    Products[] db = new Products [6]; //상품 DB 배열 
+    Sale sale = new Sale();       //거래 정보 객체
 
     //생성자 : 상품 DB 초기화 및 목록 출력
     public POST() {
