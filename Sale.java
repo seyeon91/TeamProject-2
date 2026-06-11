@@ -33,7 +33,7 @@ public class Sale
     public int getTotal() { 
         int total = 0;
         for (int i = 0; i < count; i++){
-            total += taxed[i] * qtys[i];
+            total += orig[i] * qtys[i];
         }
         return total;
     }
