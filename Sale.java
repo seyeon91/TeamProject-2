@@ -47,8 +47,8 @@ public class Sale
         // 상품 목록 + 과세물품가액(세전 합계) 누적
         int totalOrig = 0;
         for (int i = 0; i < count; i++) {
-            System.out.println(names[i] + "  " + qtys[i] + "  " + (taxed[i]*qtys[i]) + "원");
-            totalOrig += orig[i] * qtys[i];
+            System.out.println(names[i] + "  " + qtys[i] + "  " + (orig[i]*qtys[i]) + "원");
+            totalOrig += (orig[i] - taxed[i])* qtys[i];
         }
         
         // 부가세 = 결제금액 - 과세물품가액 (주류세 + 부가세 합산) 
