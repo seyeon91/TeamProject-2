@@ -5,6 +5,7 @@
  * @author (2025320070_복창희, 2025320038_윤세연, 2023320022_편규빈, 2023320004_호준수)
  * @version (2026. 06.11)
  */
+import java.util.Scanner;
 
 public class POST{
     Products[] db = new Products [6]; //상품 DB 배열 
@@ -34,5 +35,19 @@ public class POST{
             System.out.println("[" + db[i].barcode + "]" + db[i].name + " : " +db[i].price + "원");
         }
        System.out.println("=====================");
+    }
+
+    // 바코드 검색 후 Sale에 상품 추가
+    //barcode: 입력된 바코드, qty: 수량
+    //찾으면 true, 못찾으면 false 반환
+    public boolean scan(String barcode, int qty){
+        for(int i = 0; i< db.length; i++){
+            if(db[i].barcode.equals(barcode)){
+                sale.addItem(db[i].name, db[i].price, db[i].calcPrice(), qty, db[i] instanceof AlcoholicDrinks);
+                System.out.println(db[i].name + " x" + qty + " 추가됨");
+                return true;
+            }
+        }
+        return true;//일치하는 바코드 없음
     }
 }
