@@ -3,7 +3,7 @@
  * 상품 목록 저장, 바코드 인식 기능, 결제처리 기능을 하는 클래스
  *
  * @author (2025320070_복창희, 2025320038_윤세연, 2023320022_편규빈, 2023320004_호준수)
- * @version (2026. 06.12)
+ * @version (2026.06.12)
  */
 import java.util.Scanner;
 
@@ -42,9 +42,10 @@ public class POST {
         System.out.println("=====================");
     }
 
-    // 바코드 검색 후 Sale에 상품 추가
-    //barcode: 입력된 바코드, qty: 수량
-    //찾으면 true, 못찾으면 false 반환
+    /**
+     * 바코드로 상품을 검색해 거래(Sale)에 추가한다.
+     * 상품을 찾으면 true,  없으면 false
+     */
     public boolean scan(String barcode, int qty){
         for(int i = 0; i< db.length; i++){
             if(db[i].barcode.equals(barcode)){
@@ -55,11 +56,9 @@ public class POST {
                 return true;
             }
         }
-        return false;//일치하는 바코드 없음
+        return false;
     }
 
-    // 결제 처리 메소드
-    // 합계 출력 > 현금 입력 > 현금 부족 확인 > 영수증 출력
     public void pay(Scanner scan){
         System.out.println("합계 : " + sale.getTotal() + "원");
         System.out.println("받은 현금 : ");
