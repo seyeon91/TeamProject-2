@@ -7,5 +7,5 @@
  */
 public interface TAX
 {
-    int calcPrice();
+    int calcTax();
 }
