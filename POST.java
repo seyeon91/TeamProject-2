@@ -21,13 +21,15 @@ public class POST {
                 "코카콜라 250ml", "칠성사이다 제로라임 500ml", "제주사랑 감귤사랑 1.5L",
                 "카스캔 740ml", "참이슬후레쉬 360ml", "장수생막걸리 750ml"
             };
-        int[] prices = {1700, 2300, 3800, 4500, 1900, 1430};
+        int[] prices = {1700,2300,3800,4500,1900,1430};
 
-        for (int i = 0; i< 3; i++){
-            db[i] = new Beverages(barcodes[i], names[i], prices[i]);
-        }
-        for (int i = 3; i < 6; i++){
-            db[i] = new AlcoholicDrinks(barcodes[i], names[i], prices[i]);
+        for (int i = 0; i< 6; i++){
+            if(i < 3){
+                db[i] = new Beverages(barcodes[i], names[i], prices[i]);
+            }
+            else{
+                db[i] = new AlcoholicDrinks(barcodes[i], names[i], prices[i]);
+            }
         }
 
         System.out.println("====== 상품 목록 ======");
