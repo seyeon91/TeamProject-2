@@ -7,9 +7,11 @@
  */
 // 음료수 클래스 : Products 상속, TAX 인터페이스 구현
 public class Beverages extends Products implements TAX{
-    //생성자
-    public Beverages(String b, String n, int p){
-        super(b, n, p);
+    
+    public Beverages(String barcode, String name, int price){
+        this.barcode = barcode;
+        this.name = name;
+        this.price = price;
     }
     //부가세 10% 적용 : 단가 * 1.1
     public int calcPrice(){
