@@ -27,6 +27,6 @@ public class MyApp
                 System.out.println("없는 바코드.");
             }
         }
-        post.pay(scan); // 결제 + DB저장
+        post.pay(scan);
     }
 }
