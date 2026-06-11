@@ -14,12 +14,5 @@ public abstract class Products
     String name;
     int price;
 
-    // 생성자: 바코드, 상품명, 단가를 받아서 저장
-    public Products(String b, String n, int p){
-        barcode = b;
-        name = n;
-        price = p;
-    }
-
     public abstract int calcPrice();
 }
