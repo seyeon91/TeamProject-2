@@ -1,17 +1,20 @@
  
 /**
- * 상품 목록 저장, 바코드 인식 기능을 하는 클래스
+ * 상품 목록 저장, 바코드 인식 기능, 결제처리 기능을 하는 클래스
  *
  * @author (2025320070_복창희, 2025320038_윤세연, 2023320022_편규빈, 2023320004_호준수)
- * @version (2026. 06.11)
+ * @version (2026. 06.12)
  */
 import java.util.Scanner;
 
 public class POST {
-    Products[] db = new Products [6]; //상품 DB 배열 
-    Sale sale = new Sale();       //거래 정보 객체
+    Products[] db = new Products [6]; 
+    Sale sale = new Sale();      
 
-    //생성자 : 상품 DB 초기화 및 목록 출력
+    /**
+     * 계산대(POST) 객체를 생성한다.
+     * 상품 DB를 초기화하고 상품 목록을 출력한다.
+     */
     public POST() {
         String[] barcodes = {
                 "8801094018702", "8801056251727", "8801056000332",
