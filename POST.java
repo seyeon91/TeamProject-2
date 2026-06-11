@@ -59,6 +59,11 @@ public class POST {
         return false;
     }
 
+    /**
+     * 결제를 처리한다.
+     * 합계 출력 >> 현금 입력 >> 현금 부족 확인 >> 영수증 출력
+     * scan 현금 입력을 받을 Scanner
+     */
     public void pay(Scanner scan){
         System.out.println("합계 : " + sale.getTotal() + "원");
         System.out.println("받은 현금 : ");

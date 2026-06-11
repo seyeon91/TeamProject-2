@@ -55,7 +55,9 @@ public class Sale
         return total;
     }
 
-
+    /**
+     * 영수증을 출력한다. (상품 목록, 과세물품가액, 부가세, 거스름돈)
+     */
     public void print(int cash) {
         System.out.println("      ---- 선문편의점 ----");
         System.out.println("================================");
