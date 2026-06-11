@@ -14,7 +14,7 @@ public class AlcoholicDrinks extends Products implements TAX {
         this.price = price;
     }
     // 부가세 10% + 주세 30% = 40% 적용 : 단가 * 1.4
-    public int calcPrice(){
+    public int calTAX(){
         return (int)(price * 1.4);
     }
 }

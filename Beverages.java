@@ -6,7 +6,7 @@
  * @version (2026.06.09)
  */
 // 음료수 클래스 : Products 상속, TAX 인터페이스 구현
-public class Beverages extends Products implements TAX{
+public class Beverages extends Products implements TAX {
     
     public Beverages(String barcode, String name, int price){
         this.barcode = barcode;
