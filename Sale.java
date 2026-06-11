@@ -7,21 +7,23 @@
  */
 public class Sale
 {
-    static Sale[] saleDB = new Sale[100]; // 거래내역 DB
+    static Sale[] saleDB = new Sale[100]; // 거래내역 DB (모든 Sale 공유)
     static int dbCount = 0;
 
     String[] names = new String[10];
     int[] orig = new int[10], taxed = new int[10], qtys = new int[10];
-    int count = 0; // 현재 담긴 상품 수
+    int count = 0; 
 
-    // 상품 추가 메소드
-    // n: 상품명, o: 세전단가, t: 세후단가, q: 수량, a: 주류여부
-    public boolean addItem(String n, int o, int t, int q){
+    /**
+     * 거래에 상품 한 종류를 추가한다.
+     * 추가 성공 시 true, 배열이 가득 차면 false 
+     */
+    public boolean addItem(String productName, int originalPrice, int taxedPrice, int quantity){
         try{
-            names[count] = n;
-            orig[count] = o;
-            taxed[count] = t;
-            qtys[count] = q;
+            names[count] = productName;
+            orig[count] = originalPrice;
+            taxed[count] = taxedPrice;
+            qtys[count] = quantity;
             count++;
             return true;
         } catch(ArrayIndexOutOfBoundsException e){
@@ -29,8 +31,10 @@ public class Sale
             return false;
         }
     }
-
-    public void save(){ //거래수 저장
+    /**
+     * 현재 거래를 거래내역 DB에 저장한다.
+     */
+    public void save(){ 
         try{
             saleDB[dbCount] = this;
             dbCount++;
