@@ -13,9 +13,9 @@ public class Beverages extends Products implements TAX{
         this.name = name;
         this.price = price;
     }
-    //부가세 10% 적용 : 단가 * 1.1
-    public int calcPrice(){
-        return (int)(price * 1.1);
+    //부가세 10% 적용 : 단가 * 0.1
+    public int calcTax(){
+        return (int)(price * 0.1);
     }
 
 }
