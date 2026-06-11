@@ -22,7 +22,7 @@ public class POST {
                 "카스캔 740ml", "참이슬후레쉬 360ml", "장수생막걸리 750ml"
             };
         int[] prices = {1700,2300,3800,4500,1900,1430};
-
+        
         for (int i = 0; i< 6; i++){
             if(i < 3){
                 db[i] = new Beverages(barcodes[i], names[i], prices[i]);
@@ -46,12 +46,13 @@ public class POST {
         for(int i = 0; i< db.length; i++){
             if(db[i].barcode.equals(barcode)){
                 TAX item = (TAX) db[i];
-                sale.addItem(db[i].name, db[i].price, db[i].calcTax(), qty, db[i] instanceof AlcoholicDrinks);
-                System.out.println(db[i].name + " x" + qty + " 추가됨");
+                if(sale.addItem(db[i].name, db[i].price, item.calcTax(), qty)){
+                    System.out.println(db[i].name + " x" + qty + " 추가됨");
+                }
                 return true;
             }
         }
-        return true;//일치하는 바코드 없음
+        return false;//일치하는 바코드 없음
     }
 
     // 결제 처리 메소드

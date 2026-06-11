@@ -16,18 +16,27 @@ public class Sale
 
     // 상품 추가 메소드
     // n: 상품명, o: 세전단가, t: 세후단가, q: 수량, a: 주류여부
-    public boolean addItem(String n, int o, int t, int q, boolean a){
-        names[count] = n;
-        orig[count] = o;
-        taxed[count] = t;
-        qtys[count] = q;
-        count++;
-        return true;
+    public boolean addItem(String n, int o, int t, int q){
+        try{
+            names[count] = n;
+            orig[count] = o;
+            taxed[count] = t;
+            qtys[count] = q;
+            count++;
+            return true;
+        } catch(ArrayIndexOutOfBoundsException e){
+            System.out.println("* 한 거래에는 상품을 최대 10종류까지만 담을 수 있습니다.");
+            return false;
+        }
     }
 
     public void save(){ //거래수 저장
-        saleDB[dbCount] = this;
-        dbCount++;
+        try{
+            saleDB[dbCount] = this;
+            dbCount++;
+        } catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("* 거래내역 저장 공간(100건)이 가득 찼습니다.");
+        }
     }
     // 총 결제금액 계산 : 세후단가 * 수량의 합계 
     public int getTotal() { 
