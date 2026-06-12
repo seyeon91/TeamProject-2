@@ -11,18 +11,18 @@ public class Sale
     static int dbCount = 0;
     
     String[] names = new String[10];
-    int[] orig = new int[10], taxed = new int[10], qtys = new int[10];
+    int[] prices = new int[10], taxes = new int[10], qtys = new int[10];
     int count = 0; 
 
     /**
      * 거래에 상품 한 종류를 추가한다.
      * 추가 성공 시 true, 배열이 가득 차면 false 
      */
-    public boolean addItem(String productName, int originalPrice, int taxedPrice, int quantity){
+    public boolean addItem(String productName, int originalPrice, int taxesPrice, int quantity){
         try{
             names[count] = productName;
-            orig[count] = originalPrice;
-            taxed[count] = taxedPrice;
+            prices[count] = originalPrice;
+            taxes[count] = taxesPrice;
             qtys[count] = quantity;
             count++;
             return true;
@@ -50,7 +50,7 @@ public class Sale
     public int getTotal() { 
         int total = 0;
         for (int i = 0; i < count; i++){
-            total += orig[i] * qtys[i];
+            total += prices[i] * qtys[i];
         }
         return total;
     }
@@ -64,8 +64,8 @@ public class Sale
 
         int totalOrig = 0;
         for (int i = 0; i < count; i++) {
-            System.out.println(names[i] + "  " + qtys[i] + "  " + (orig[i]*qtys[i]) + "원");
-            totalOrig += (orig[i] - taxed[i])* qtys[i];
+            System.out.println(names[i] + "  " + qtys[i] + "  " + (prices[i]*qtys[i]) + "원");
+            totalOrig += (prices[i] - taxes[i])* qtys[i];
         }
         
         int vat = getTotal() - totalOrig;
