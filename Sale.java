@@ -7,16 +7,18 @@
  */
 public class Sale
 {
-    static Sale[] saleDB = new Sale[100];
-    static int dbCount = 0;
-    
     String[] names = new String[10];
     int[] prices = new int[10], taxes = new int[10], qtys = new int[10];
     int count = 0; 
 
     /**
      * 거래에 상품 한 종류를 추가한다.
-     * 추가 성공 시 true, 배열이 가득 차면 false 
+     * 
+     * @param productName 상품명
+     * @param originalPrice 판매단가(세금포함)
+     * @param taxesPrice 세액
+     * @param quantity 수량
+     * @return 추가 성공 시 true, 배열이 가득 차면 false
      */
     public boolean addItem(String productName, int originalPrice, int taxesPrice, int quantity){
         try{
@@ -31,21 +33,11 @@ public class Sale
             return false;
         }
     }
-    
-    /**
-     * 현재 거래를 거래내역 DB에 저장한다.
-     */
-    public void save(){ 
-        try{
-            saleDB[dbCount] = this;
-            dbCount++;
-        } catch (ArrayIndexOutOfBoundsException e){
-            System.out.println("* 거래내역 저장 공간(100건)이 가득 찼습니다.");
-        }
-    }
-    
+
     /**
      * 총 결제금액을 계산한다.
+     * 
+     * @return 총 결제금액(원)
      */
     public int getTotal() { 
         int total = 0;
@@ -57,6 +49,8 @@ public class Sale
 
     /**
      * 영수증을 출력한다. (상품 목록, 과세물품가액, 부가세, 거스름돈)
+     * 
+     * @param cash 손님에게 받은 현금
      */
     public void print(int cash) {
         System.out.println("      ---- 선문편의점 ----");
@@ -67,7 +61,7 @@ public class Sale
             System.out.println(names[i] + "  " + qtys[i] + "  " + (prices[i]*qtys[i]) + "원");
             totalOrig += (prices[i] - taxes[i])* qtys[i];
         }
-        
+
         int vat = getTotal() - totalOrig;
 
         System.out.println("================================");

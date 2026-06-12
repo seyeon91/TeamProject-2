@@ -9,7 +9,9 @@ import java.util.Scanner;
 
 public class POST {
     Products[] db = new Products [6]; 
-    Sale sale = new Sale();      
+    Sale sale = new Sale();    
+    Sale[] saleDB = new Sale[100];
+    int dbCount = 0;
 
     /**
      * 계산대(POST) 객체를 생성한다.
@@ -44,7 +46,10 @@ public class POST {
 
     /**
      * 바코드로 상품을 검색해 거래(Sale)에 추가한다.
-     * 상품을 찾으면 true,  없으면 false
+     * 
+     * @param barcode 입력된 바코드
+     * @param qty 수량
+     * @return 상품을 찾으면 true, 없으면 false
      */
     public boolean scan(String barcode, int qty){
         for(int i = 0; i< db.length; i++){
@@ -58,11 +63,24 @@ public class POST {
         }
         return false;
     }
-
+    
+    /**
+     * 현재 거래를 거래내역 DB에 저장한다.
+     */
+    public void save(){
+        try{
+            saleDB[dbCount] = sale;
+            dbCount++;
+        } catch(ArrayIndexOutOfBoundsException e){
+            System.out.println("* 거래내역 저장 공간(100건)이 가득 찼습니다.");
+        }
+    }
+    
     /**
      * 결제를 처리한다.
      * 합계 출력 >> 현금 입력 >> 현금 부족 확인 >> 영수증 출력
-     * scan 현금 입력을 받을 Scanner
+     * 
+     * @param scan 현금 입력을 받을 Scanner
      */
     public void pay(Scanner scan){
         System.out.println("합계 : " + sale.getTotal() + "원");
@@ -73,6 +91,6 @@ public class POST {
             return;
         }
         sale.print(cash);
-        sale.save();
+        save();
     }
 }    

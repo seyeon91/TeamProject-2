@@ -9,6 +9,8 @@ public class MyApp
 {
     /**
      * 바코드를 반복 입력 받아 거래를 처리하고 결제한다.
+     * 
+     * @param args 실행 인자
      */
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);

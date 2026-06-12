@@ -9,6 +9,10 @@ public class AlcoholicDrinks extends Products implements TAX {
     
     /**
      * 주류 객체를 생성하는 생성자
+     * 
+     * @param barcode 바코드 번호
+     * @param name 상품명
+     * @param price 단가
      */
     public AlcoholicDrinks(String barcode, String name, int price){
         this.barcode = barcode;
@@ -18,6 +22,8 @@ public class AlcoholicDrinks extends Products implements TAX {
     
     /**
      * 주류의 세금을 계산한다. (부가세 10% + 주류세 30%)
+     * 
+     * @return 세금(원)
      */
     public int calcTax(){
         return (int)(price * 0.4);

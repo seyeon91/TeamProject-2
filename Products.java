@@ -6,8 +6,6 @@
  * @version (2026.06.12)
  */
 
-// 모든 상품의 부모 클래스(추상 클래스)
-// 직접 객체를 만들 수 없고, 반드시 자식 클래스를 통해 사용
 public abstract class Products
 {
     String barcode;
@@ -16,6 +14,8 @@ public abstract class Products
 
     /**
      * 상품의 세금을 계산하는 추상 메소드
+     * 
+     * @return 계산된 세금(원)
      */
     public abstract int calcTax();
 }
