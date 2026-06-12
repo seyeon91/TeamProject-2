@@ -73,5 +73,6 @@ public class POST {
             return;
         }
         sale.print(cash);
+        sale.save();
     }
 }    
